@@ -1,0 +1,93 @@
+/* Keep the existing Matrix background styles and other existing styles */
+
+/* Container styling to center content */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #00ff00; /* Neon green */
+    z-index: 2; /* Ensure it appears over the canvas */
+    font-family: 'Courier New', monospace;
+}
+
+/* Title Box (Header Section) */
+.title-box {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+h2 {
+    margin: 5px 0;
+    font-size: 24px;
+}
+
+/* Portal Selection Section */
+.portal-selection h3 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Portals Styling */
+.portals {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* Individual Portal Boxes */
+.portal {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.portal:hover {
+    transform: scale(1.1);
+    /* Applies green filter to icon and text on hover */
+}
+
+.portal:hover .icon {
+    filter: brightness(0) saturate(100%) invert(61%) sepia(76%) saturate(1969%) hue-rotate(70deg) brightness(103%) contrast(100%);
+}
+
+.portal:hover p {
+    color: #00ff00; /* Neon green text when hovered */
+}
+
+/* Icon Styling */
+.icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    transition: filter 0.3s ease;
+}
+
+/* Portal Label */
+.portal p {
+    font-size: 18px;
+    color: #ffffff; /* Default color is white */
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Ensure the canvas (Matrix effect) is underneath other content */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Make sure the canvas stays behind the content */
+}

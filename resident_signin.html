@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Sign-In</title>
+    <link rel="stylesheet" href="resident_signin.css">
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Back Button -->
+    <div class="back-button">
+        <a href="index.html"><img src="Sign Up Options/Back Arrow Button.png" alt="Back Button"></a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="title-box">
+                <h1>Dynasty Defense Alarm</h1>
+                <h2>Systems & Monitoring:</h2>
+                <h2>Residential Edition</h2>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-form">
+            <form action="#" method="post">
+                <label for="login">RESIDENT LOGIN:</label>
+                <input type="text" id="login" name="login" required>
+                <br>
+                <label for="password">PASSWORD:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+              <!-- Wrap Forgot Password and Register in a container -->
+        <div class="form-links">
+            <a href="#" class="forgot-password">FORGOT PASSWORD</a><br>
+            <a href="#" class="register">REGISTER</a>
+        </div>
+
+                <button type="submit" class="enter-button">ENTER</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+</body>
+</html>

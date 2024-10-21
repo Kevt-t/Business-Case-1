@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynasty Defense Alarm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="title-box">
+                <h1>Dynasty Defense Alarm</h1>
+                <h2>Systems & Monitoring:</h2>
+                <h2>Residential Edition</h2>
+            </div>
+        </div>
+
+        <!-- Portal Section -->
+        <div class="portal-selection">
+            <h3>Select Your Portal</h3>
+            <div class="portals">
+                <!-- Resident Portal -->
+                <a href="resident_signin.html">
+                    <div class="portal" id="resident">
+                        <img src="Sign Up Options/Resident Icon.png" alt="Resident Icon" class="icon">
+                        <p>RESIDENT</p>
+                    </div>
+                </a>
+                
+
+                <!-- Admin Portal -->
+                <div class="portal" id="admin">
+                    <img src="Sign Up Options/Admin Icon.png" alt="Admin Icon" class="icon">
+                    <p>ADMIN</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+</body>
+</html>
