@@ -1,0 +1,99 @@
+/* Matrix Background */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+/* Container styling to center content */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #00ff00; /* Neon green */
+    z-index: 2; /* Ensure it appears over the canvas */
+    font-family: 'Courier New', monospace;
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3; /* Make sure it appears over the canvas and form */
+}
+
+.back-button img {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Title Box (Header Section) */
+.title-box {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+h2 {
+    margin: 5px 0;
+    font-size: 24px;
+}
+
+/* Sign-Up Form Styling */
+.signup-form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.signup-form label {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
+
+.signup-form input,
+.signup-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #00ff00;
+    background: none;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+}
+
+/* Register Button */
+.register-button {
+    background: #00ff00;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}

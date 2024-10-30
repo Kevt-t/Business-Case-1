@@ -11,7 +11,7 @@ const drops = [];
 
 // Set text color based on the current page
 let matrixTextColor = '#0F0'; // Default green
-if (window.location.pathname.includes('admin_signin.html') || window.location.pathname.includes('admin_signup.html')) {
+if (window.location.pathname.includes('admin')) {
     matrixTextColor = '#00F'; // Blue for admin sign-in page
 }
 
