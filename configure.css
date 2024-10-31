@@ -1,0 +1,100 @@
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+}
+
+.back-button img {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Center container styling */
+.container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    padding-top: 50px;
+}
+
+/* Title styling */
+.title h1, .title h2 {
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.title h1 {
+    font-size: 36px;
+}
+
+.title h2 {
+    font-size: 24px;
+}
+
+/* Floor Selector Styling */
+.floor-selector {
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+.floor-selector p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.floor-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.floor-nav button {
+    background: #00ff00;
+    color: #000000;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.floor-nav button:hover {
+    background-color: #ffffff;
+}
+
+.floors {
+    display: flex;
+    gap: 10px;
+}
+
+.floor-button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border: 1px solid #333;
+    background: #cccccc;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.floor-button.selected {
+    background-color: #00ff00;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* Config Form Styling */
+#initial-form, #config-form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    color: #ffffff;
+    margin-top: 20px;
+}
