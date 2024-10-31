@@ -11,57 +11,85 @@
 
     <!-- Back Button -->
     <div class="back-button">
-        <a href="admin_signin.html"><img src="Sign Up Options/Back Arrow Button.png" alt="Back Button"></a>
+        <a href="index.html"><img src="Sign Up Options/Back Arrow Button.png" alt="Back Button"></a>
     </div>
 
     <!-- Main Container -->
     <div class="container">
         <!-- Header Section -->
-        <div class="header">
-            <div class="title-box">
-                <h1>Dynasty Defense Alarm</h1>
-                <h2>Admin Registration</h2>
-            </div>
+        <div class="title-box">
+            <h1>Dynasty Defense Alarm</h1>
+            <h2>Admin Registration</h2>
         </div>
 
         <!-- Sign-Up Form -->
         <div class="signup-form">
-            <form action="#" method="post">
-                <label for="first-name">FIRST NAME:</label>
-                <input type="text" id="first-name" name="first-name" required>
-
-                <label for="last-name">LAST NAME:</label>
-                <input type="text" id="last-name" name="last-name" required>
-
-                <label for="email">EMAIL:</label>
+            <form id="signupForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                
+                <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-
-                <label for="password">PASSWORD:</label>
+                
+                <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-
-                <label for="confirm-password">CONFIRM PASSWORD:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-
-                <label for="building-name">BUILDING NAME:</label>
-                <input type="text" id="building-name" name="building-name" required>
-
-                <label for="type">TYPE:</label>
+                
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                
+                <label for="buildingName">Building Name:</label>
+                <input type="text" id="buildingName" name="buildingName" required>
+                
+                <label for="type">Type:</label>
                 <select id="type" name="type" required>
-                    <option value="residential">Residential</option>
-                    <option value="apartment">Apartment</option>
+                    <option value="Building">Building</option>
+                    <option value="Apartment">Apartment</option>
                 </select>
-
-                <label for="floors">FLOORS:</label>
+                
+                <label for="floors">Floors:</label>
                 <input type="number" id="floors" name="floors" required>
-
-                <label for="units">UNITS:</label>
+                
+                <label for="units">Units:</label>
                 <input type="number" id="units" name="units" required>
-
-                <button type="submit" class="register-button">REGISTER</button>
+                
+                <button type="submit" class="signup-button">SIGN UP</button>
             </form>
         </div>
     </div>
 
     <script src="matrix.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Capture form data
+            const adminData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value,
+                buildingName: document.getElementById('buildingName').value,
+                type: document.getElementById('type').value,
+                floors: document.getElementById('floors').value,
+                units: document.getElementById('units').value
+            };
+
+            // Simple password confirmation check
+            if (adminData.password !== adminData.confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            // Save to localStorage
+            localStorage.setItem('adminData', JSON.stringify(adminData));
+
+            // Redirect to dashboard
+            window.location.href = 'admin_dashboard.html';
+        });
+    </script>
 </body>
 </html>
