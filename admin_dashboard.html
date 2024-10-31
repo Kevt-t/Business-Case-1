@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Admin Info Section -->
+        <div class="admin-info">
+            <h2>Welcome, <span id="adminName"></span></h2>
+            <p>Building Name: <span id="buildingName"></span></p>
+            <p>Floors: <span id="floors"></span></p>
+            <p>Units: <span id="units"></span></p>
+        </div>
+
+        <!-- Header Section for the Title -->
+        <div class="title">
+            <h1>AVAILABLE SYSTEMS</h1>
+        </div>
+
+        <!-- Dashboard Icons and Monitor Buttons -->
+        <div class="dashboard">
+            <div class="dashboard-item">
+                <img src="dashboard/Fire Icon.png" alt="Fire Alarm Icon" class="icon">
+                <p class="system-name">FIRE</p>
+                <button onclick="window.location.href='configurefirealarm.html'" class="monitor-button">MONITOR</button>
+            </div>
+            <div class="dashboard-item">
+                <img src="dashboard/Smoke Icon.png" alt="Smoke Alarm Icon" class="icon">
+                <p class="system-name">SMOKE</p>
+                <button onclick="window.location.href='configuresmokealarm.html'" class="monitor-button">MONITOR</button>
+            </div>
+            <div class="dashboard-item">
+                <img src="dashboard/Temperature Icon.png" alt="Temperature Alarm Icon" class="icon">
+                <p class="system-name">TEMP</p>
+                <button onclick="window.location.href='configuretemperaturealarm.html'" class="monitor-button">MONITOR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+    <script>
+        // Retrieve and display admin data from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const adminData = JSON.parse(localStorage.getItem('adminData'));
+            if (adminData) {
+                document.getElementById('adminName').textContent = `${adminData.firstName} ${adminData.lastName}`;
+                document.getElementById('buildingName').textContent = adminData.buildingName;
+                document.getElementById('floors').textContent = adminData.floors;
+                document.getElementById('units').textContent = adminData.units;
+            } else {
+                console.error('No admin data found in localStorage');
+            }
+        });
+    </script>
+</body>
+</html>
