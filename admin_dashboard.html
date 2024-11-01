@@ -11,53 +11,56 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Admin Info Section -->
-        <div class="admin-info">
-            <h2>Welcome, <span id="adminName"></span></h2>
-            <p>Building Name: <span id="buildingName"></span></p>
-            <p>Floors: <span id="floors"></span></p>
-            <p>Units: <span id="units"></span></p>
-        </div>
-
         <!-- Header Section for the Title -->
-        <div class="title">
-            <h1>AVAILABLE SYSTEMS</h1>
+        <div class="title-box">
+            <h1>Admin Dashboard</h1>
+            <p id="profile-info">Welcome, Admin</p>
         </div>
 
-        <!-- Dashboard Icons and Monitor Buttons -->
+        <!-- User Control Button -->
+        <button id="openUserControl" class="open-modal-button">User Control</button>
+
+        <!-- Modal for User Control -->
+        <div id="userControlModal" class="modal">
+            <div class="modal-content">
+                <span id="closeUserControl" class="close">&times;</span>
+                <h2>User Control</h2>
+                <form id="grantAccessForm">
+                    <label for="email">Grant Access (Email):</label>
+                    <input type="email" id="email" required>
+                    
+                    <label for="floor">Specify Floor:</label>
+                    <input type="number" id="floor" min="1" required>
+                    
+                    <button type="submit">Grant Access</button>
+                </form>
+
+                <div id="accessList">
+                    <h3>Authorized Users:</h3>
+                    <!-- List of authorized users will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Icons and Configure Buttons -->
         <div class="dashboard">
             <div class="dashboard-item">
                 <img src="dashboard/Fire Icon.png" alt="Fire Alarm Icon" class="icon">
-                <p class="system-name">FIRE</p>
-                <button onclick="window.location.href='configurefirealarm.html'" class="monitor-button">MONITOR</button>
+                <button onclick="window.location.href='configurefirealarm.html'" class="monitor-button">CONFIGURE</button>
             </div>
             <div class="dashboard-item">
                 <img src="dashboard/Smoke Icon.png" alt="Smoke Alarm Icon" class="icon">
-                <p class="system-name">SMOKE</p>
-                <button onclick="window.location.href='configuresmokealarm.html'" class="monitor-button">MONITOR</button>
+                <button onclick="window.location.href='configuresmokealarm.html'" class="monitor-button">CONFIGURE</button>
             </div>
             <div class="dashboard-item">
                 <img src="dashboard/Temperature Icon.png" alt="Temperature Alarm Icon" class="icon">
-                <p class="system-name">TEMP</p>
-                <button onclick="window.location.href='configuretemperaturealarm.html'" class="monitor-button">MONITOR</button>
+                <button onclick="window.location.href='configuretemperaturealarm.html'" class="monitor-button">CONFIGURE</button>
             </div>
         </div>
     </div>
 
+    <!-- Link JavaScript files -->
     <script src="matrix.js"></script>
-    <script>
-        // Retrieve and display admin data from localStorage
-        document.addEventListener('DOMContentLoaded', () => {
-            const adminData = JSON.parse(localStorage.getItem('adminData'));
-            if (adminData) {
-                document.getElementById('adminName').textContent = `${adminData.firstName} ${adminData.lastName}`;
-                document.getElementById('buildingName').textContent = adminData.buildingName;
-                document.getElementById('floors').textContent = adminData.floors;
-                document.getElementById('units').textContent = adminData.units;
-            } else {
-                console.error('No admin data found in localStorage');
-            }
-        });
-    </script>
+    <script src="admin_dashboard.js"></script>
 </body>
 </html>

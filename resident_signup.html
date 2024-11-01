@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Sign-Up</title>
+    <link rel="stylesheet" href="admin_signup.css">
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Back Button -->
+    <div class="back-button">
+        <a href="index.html"><img src="Sign Up Options/Back Arrow Button.png" alt="Back Button"></a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="title-box">
+            <h1>Dynasty Defense Alarm</h1>
+            <h2>Resident Registration</h2>
+        </div>
+
+        <!-- Sign-Up Form -->
+        <div class="signup-form">
+            <form id="signupForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+             
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <button type="submit" class="signup-button">SIGN UP</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Capture form data
+            const residentData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value,
+            };
+
+            // Simple password confirmation check
+            if (residentData.password !== residentData.confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            // Save to localStorage
+            localStorage.setItem('residentData', JSON.stringify(residentData));
+
+            // Redirect to dashboard
+            window.location.href = 'resident_dashboard.html';
+        });
+    </script>
+</body>
+</html>

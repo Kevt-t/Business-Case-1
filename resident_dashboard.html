@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section for the Title -->
+        <div class="title-box">
+            <h1>Resident Dashboard</h1>
+            <p id="residentInfo">Welcome, Resident</p>
+        </div>
+
+        <!-- View Alarms Section -->
+        <div class="alarm-view">
+            <h2>Your Alarms on Floor <span id="floor-number"></span></h2>
+            <div class="dashboard">
+                <div class="dashboard-item">
+                    <img src="dashboard/Fire Icon.png" alt="Fire Alarm Icon" class="icon">
+                    <p id="fireAlarmStatus">Fire Alarm: Loading...</p>
+                </div>
+                <div class="dashboard-item">
+                    <img src="dashboard/Smoke Icon.png" alt="Smoke Alarm Icon" class="icon">
+                    <p id="smokeAlarmStatus">Smoke Alarm: Loading...</p>
+                </div>
+                <div class="dashboard-item">
+                    <img src="dashboard/Temperature Icon.png" alt="Temperature Alarm Icon" class="icon">
+                    <p id="temperatureAlarmStatus">Temperature Alarm: Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link JavaScript files -->
+    <script src="matrix.js"></script>
+    <script src="resident_dashboard.js"></script>
+</body>
+</html>

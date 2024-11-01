@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resident Sign-In</title>
+    <title>Admin Sign-In</title>
     <link rel="stylesheet" href="signin.css">
 </head>
 <body>
@@ -27,18 +27,18 @@
 
         <!-- Login Form -->
         <div class="login-form">
-            <form action="admin_dashboard.html" method="post">
+            <form id="loginForm">
                 <label for="login">ADMIN LOGIN:</label>
                 <input type="text" id="login" name="login" required>
                 <br>
                 <label for="password">PASSWORD:</label>
                 <input type="password" id="password" name="password" required>
                 <br>
-              <!-- Wrap Forgot Password and Register in a container -->
-        <div class="form-links">
-            <a href="#" class="forgot-password">FORGOT PASSWORD</a><br>
-            <a href="admin_signup.html" class="register">REGISTER</a>
-        </div>
+                <!-- Wrap Forgot Password and Register in a container -->
+                <div class="form-links">
+                    <a href="#" class="forgot-password">FORGOT PASSWORD</a><br>
+                    <a href="admin_signup.html" class="register">REGISTER</a>
+                </div>
 
                 <button type="submit" class="enter-button">ENTER</button>
             </form>
@@ -46,5 +46,34 @@
     </div>
 
     <script src="matrix.js"></script>
+    <script>
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the login (email) and password from the input fields
+            const login = document.getElementById('login').value;
+            const password = document.getElementById('password').value;
+
+            // Retrieve the admin data from localStorage
+            const adminData = JSON.parse(localStorage.getItem('adminData'));
+
+            // Check if the email and password match the stored data
+            if (adminData && adminData.email === login && adminData.password === password) {
+                // Save the login state or user info to localStorage
+                localStorage.setItem('loggedInAdmin', JSON.stringify({
+                    firstName: adminData.firstName,
+                    lastName: adminData.lastName,
+                    email: adminData.email
+                }));
+
+                // Redirect to the admin dashboard
+                window.location.href = 'admin_dashboard.html';
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
+        

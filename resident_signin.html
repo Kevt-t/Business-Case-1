@@ -27,18 +27,18 @@
 
         <!-- Login Form -->
         <div class="login-form">
-            <form action="#" method="post">
+            <form id="signinForm"> <!-- Corrected ID -->
                 <label for="login">RESIDENT LOGIN:</label>
-                <input type="text" id="login" name="login" required>
+                <input type="text" id="email" name="login" required> <!-- Corrected ID -->
                 <br>
                 <label for="password">PASSWORD:</label>
                 <input type="password" id="password" name="password" required>
                 <br>
-              <!-- Wrap Forgot Password and Register in a container -->
-        <div class="form-links">
-            <a href="#" class="forgot-password">FORGOT PASSWORD</a><br>
-            <a href="#" class="register">REGISTER</a>
-        </div>
+                <!-- Wrap Forgot Password and Register in a container -->
+                <div class="form-links">
+                    <a href="#" class="forgot-password">FORGOT PASSWORD</a><br>
+                    <a href="resident_signup.html" class="register">REGISTER</a>
+                </div>
 
                 <button type="submit" class="enter-button">ENTER</button>
             </form>
@@ -46,5 +46,6 @@
     </div>
 
     <script src="matrix.js"></script>
+    <script src="resident_signin.js"></script>
 </body>
 </html>
