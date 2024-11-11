@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/dashboard.css">
 </head>
 <body>
     <canvas id="matrixCanvas"></canvas>
@@ -45,22 +45,22 @@
         <!-- Dashboard Icons and Configure Buttons -->
         <div class="dashboard">
             <div class="dashboard-item">
-                <img src="dashboard/Fire Icon.png" alt="Fire Alarm Icon" class="icon">
-                <button onclick="window.location.href='configurefirealarm.html'" class="monitor-button">CONFIGURE</button>
+                <img src="/dashboardIcons\Fire Icon.png" alt="Fire Alarm Icon" class="icon">
+                <button onclick="window.location.href='/alarmconfigpages/configurefirealarm.html'" class="monitor-button">CONFIGURE</button>
             </div>
             <div class="dashboard-item">
-                <img src="dashboard/Smoke Icon.png" alt="Smoke Alarm Icon" class="icon">
-                <button onclick="window.location.href='configuresmokealarm.html'" class="monitor-button">CONFIGURE</button>
+                <img src="/dashboardIcons/Smoke Icon.png" alt="Smoke Alarm Icon" class="icon">
+                <button onclick="window.location.href='/alarmconfigpages/configuresmokealarm.html'" class="monitor-button">CONFIGURE</button>
             </div>
             <div class="dashboard-item">
-                <img src="dashboard/Temperature Icon.png" alt="Temperature Alarm Icon" class="icon">
-                <button onclick="window.location.href='configuretemperaturealarm.html'" class="monitor-button">CONFIGURE</button>
+                <img src="/dashboardIcons/Temperature Icon.png" alt="Temperature Alarm Icon" class="icon">
+                <button onclick="window.location.href='/alarmconfigpages/configuretemperaturealarm.html'" class="monitor-button">CONFIGURE</button>
             </div>
         </div>
     </div>
 
     <!-- Link JavaScript files -->
-    <script src="matrix.js"></script>
+    <script src="/matrix.js"></script>
     <script src="admin_dashboard.js"></script>
 </body>
 </html>
