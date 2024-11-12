@@ -16,6 +16,7 @@ function initFloors() {
     renderFloors();
 }
 
+//Change view of configurable floors
 function scrollFloors(direction) {
     const maxPage = Math.ceil(totalFloors / floorsPerPage) - 1;
     currentPage = Math.max(0, Math.min(maxPage, currentPage + direction));
