@@ -16,12 +16,12 @@ function initFloors() {
     renderFloors();
 }
 
+//change view of configureable floors
 function scrollFloors(direction) {
     const maxPage = Math.ceil(totalFloors / floorsPerPage) - 1;
     currentPage = Math.max(0, Math.min(maxPage, currentPage + direction));
     renderFloors();
 }
-
 
 
 // Render floors based on current page
@@ -38,15 +38,12 @@ function renderFloors() {
         floorButton.textContent = i;
         floorButton.onclick = () => selectFloor(i);
 
-        
-
         // Retrieve the alarm data for this floor
-        const alarmData = JSON.parse(localStorage.getItem(`alarmDataFloor${i}`));
+        const alarmData = JSON.parse(localStorage.getItem(`temperatureAlarmDataFloor${i}`));
 
         // Determine the color of the floor button based on the alarm status
         if (alarmData) {
             if (alarmData.toggleStatus === "On") {
-                // Check if the alarm is functioning (this can be a mock status)
                 if (alarmData.isFunctioning !== false) {
                     floorButton.style.backgroundColor = "green"; // Alarm is on and functioning
                 } else {
@@ -69,19 +66,14 @@ function selectFloor(floorNumber) {
     document.querySelectorAll(".floor-button").forEach(btn => btn.classList.remove("selected"));
     event.target.classList.add("selected");
 
-    // Check if an alarm configuration exists for this floor
-    const alarmData = JSON.parse(localStorage.getItem(`alarmDataFloor${selectedFloor}`));
+    const alarmData = JSON.parse(localStorage.getItem(`temperatureAlarmDataFloor${selectedFloor}`));
     if (alarmData) {
-        // Show configuration form with existing data
         document.getElementById('initial-form').style.display = 'none';
         document.getElementById('config-form').style.display = 'block';
         document.getElementById('device-id').textContent = alarmData.sensorId;
         document.getElementById('toggle').checked = alarmData.toggleStatus === "On";
-
-        // Update the status text
         updateStatusText(alarmData.toggleStatus === "On");
     } else {
-        // Show initial form to add a new alarm
         document.getElementById('initial-form').style.display = 'block';
         document.getElementById('config-form').style.display = 'none';
     }
@@ -99,21 +91,16 @@ function validateInput() {
     const pin = document.getElementById('pin').value;
 
     if (sensorId && pin) {
-        // Save alarm data for the selected floor
         const alarmData = {
             sensorId: sensorId,
             pin: pin,
-            toggleStatus: "On", // Default status
-            isFunctioning: true // Default to functioning
+            toggleStatus: "On",
+            isFunctioning: true
         };
-        localStorage.setItem(`alarmDataFloor${selectedFloor}`, JSON.stringify(alarmData));
-
-        // Transition to the configuration form
+        localStorage.setItem(`temperatureAlarmDataFloor${selectedFloor}`, JSON.stringify(alarmData));
         document.getElementById('initial-form').style.display = 'none';
         document.getElementById('config-form').style.display = 'block';
         document.getElementById('device-id').textContent = sensorId;
-
-        // Update the status text to "Active"
         updateStatusText(true);
     } else {
         alert("Please enter both Sensor ID and PIN.");
@@ -127,20 +114,16 @@ function savePreferences() {
     const endTime = document.getElementById('endTime').value;
     const delay = document.getElementById('delay').value;
 
-    // Update alarm data for the selected floor
-    const alarmData = JSON.parse(localStorage.getItem(`alarmDataFloor${selectedFloor}`)) || {};
+    const alarmData = JSON.parse(localStorage.getItem(`temperatureAlarmDataFloor${selectedFloor}`)) || {};
     alarmData.toggleStatus = toggleStatus;
     alarmData.startTime = startTime;
     alarmData.endTime = endTime;
     alarmData.delay = delay;
 
-    localStorage.setItem(`alarmDataFloor${selectedFloor}`, JSON.stringify(alarmData));
-
-    // Update the status text based on the new toggle status
+    localStorage.setItem(`temperatureAlarmDataFloor${selectedFloor}`, JSON.stringify(alarmData));
     updateStatusText(toggleStatus === "On");
-
     alert(`Preferences Saved:\nToggle: ${toggleStatus}\nSchedule: ${startTime} - ${endTime}\nDelay: ${delay}`);
-    renderFloors(); // Re-render floors to update colors
+    renderFloors();
 }
 
 // Add event listener to update status when the toggle changes

@@ -3,27 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configure Temperature Alarm</title>
+    <title>Configure Fire Alarm</title>
     <link rel="stylesheet" href="configure.css">
 </head>
 <body>
     <canvas id="matrixCanvas"></canvas>
+
+    <!-- Back Button -->
     <div class="back-button">
-        <a href="admin_dashboard.html"><img src="dashboard/Back Arrow Button.png" alt="Back Button"></a>
+        <a href="/adminpages/admin_dashboard.html"><img src="/Sign Up Options/Back Arrow Button.png" alt="Back Button"></a>
     </div>
+
+    <!-- Main Container -->
     <div class="container">
         <div class="title">
             <h1>CONFIGURE</h1>
-            <h2>TEMPERATURE DETECTOR</h2>
+            <h2>FIRE DETECTOR</h2>
         </div>
+
+        <!-- Floor Selector -->
         <div class="floor-selector">
             <p>FLOOR</p>
             <div class="floor-nav">
-                <button onclick="scrollFloors(-1)">&#x25B2;</button>
+                <button onclick="scrollFloors(1)">&#x25B2;</button>
                 <div id="floor-container" class="floors"></div>
-                <button onclick="scrollFloors(1)">&#x25BC;</button>
+                <button onclick="scrollFloors(-1)">&#x25BC;</button>
             </div>
         </div>
+
+        <!-- Initial Input Form -->
         <div id="initial-form">
             <label for="sensorId">LINK SENSOR ID #</label>
             <input type="text" id="sensorId" required>
@@ -31,6 +39,8 @@
             <input type="password" id="pin" required>
             <button onclick="validateInput()">Submit</button>
         </div>
+
+        <!-- Configuration Form -->
         <div id="config-form" style="display: none;">
             <p>DEVICE ID: <span id="device-id"></span></p>
             <p>STATUS: <span id="status">Active</span></p>
@@ -43,7 +53,9 @@
             <button onclick="savePreferences()">SAVE PREFERENCES</button>
         </div>
     </div>
-    <script src="matrix.js"></script>
-    <script src="configuretemperaturealarm.js"></script>
+
+    <!-- Link the external JavaScript file -->
+    <script src="/matrix.js"></script>
+    <script src="configurefirealarm.js"></script>
 </body>
 </html>

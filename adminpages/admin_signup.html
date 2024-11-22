@@ -11,7 +11,7 @@
 
     <!-- Back Button -->
     <div class="back-button">
-        <a href="index.html"><img src="Sign Up Options/Back Arrow Button.png" alt="Back Button"></a>
+        <a href="admin_signin.html"><img src="/Sign Up Options/Back Arrow Button.png" alt="Back Button"></a>
     </div>
 
     <!-- Main Container -->
@@ -60,36 +60,7 @@
         </div>
     </div>
 
-    <script src="matrix.js"></script>
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Capture form data
-            const adminData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value,
-                confirmPassword: document.getElementById('confirmPassword').value,
-                buildingName: document.getElementById('buildingName').value,
-                type: document.getElementById('type').value,
-                floors: document.getElementById('floors').value,
-                units: document.getElementById('units').value
-            };
-
-            // Simple password confirmation check
-            if (adminData.password !== adminData.confirmPassword) {
-                alert('Passwords do not match.');
-                return;
-            }
-
-            // Save to localStorage
-            localStorage.setItem('adminData', JSON.stringify(adminData));
-
-            // Redirect to dashboard
-            window.location.href = 'admin_dashboard.html';
-        });
-    </script>
+    <script src="/matrix.js"></script>
+    <script src="admin_signup.js"></script>
 </body>
 </html>
